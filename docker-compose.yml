@@ -1,5 +1,15 @@
 services:
 
+  mongodb:
+    image: mongo:latest
+    restart: always
+    ports:
+      - 27017:27017
+    networks:
+      - web-api-video
+    volumes:
+      - mongodb_data:/data/db
+
   rabbitmq:
     image: masstransit/rabbitmq:latest
     restart: always
@@ -113,3 +123,4 @@ volumes:
   prometheus_data:
   sqlserver_data:
   rabbitmq_data:
+  mongodb_data:
